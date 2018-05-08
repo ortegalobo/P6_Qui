@@ -166,11 +166,11 @@ exports.randomPlay = (req, res, next) => {
 
         const whereOpt = {"id": {[Sequelize.Op.notIn]:req.session.resolved}};
 
-        return models.quiz.count(/*{where: whereOpt}*/)
+        return models.quiz.count({where: whereOpt})
             .then(count => {
                 let ran = Math.floor(Math.random()*count);
                 return models.quiz.findAll({
-                    /*where: whereOpt,*/
+                    where: whereOpt,
                     offset: ran,
                     limit: 1
                 }).then(quizzes => {
@@ -203,14 +203,14 @@ exports.randomCheck = (req, res, next) => {
         models.quiz.count()
             .then( count => {
                 if (score === count){
-                    res.render('random_nomore', {score});
+                    res.render('quizzes/random_nomore', {score});
                 } else {
                     res.render('quizzes/random_result', {result, score, answer});
                 }
             });
     } else {
-        delete req.session.resolved;
         const score = req.session.resolved.length;
+        delete req.session.resolved;
         res.render('quizzes/random_result', {result, score, answer});
     }
 
