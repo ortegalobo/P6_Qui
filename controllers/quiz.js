@@ -203,6 +203,7 @@ exports.randomCheck = (req, res, next) => {
         models.quiz.count()
             .then( count => {
                 if (score === count){
+                    delete req.session.resolved;
                     res.render('quizzes/random_nomore', {score});
                 } else {
                     res.render('quizzes/random_result', {result, score, answer});
