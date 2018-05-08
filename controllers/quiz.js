@@ -197,10 +197,17 @@ exports.randomCheck = (req, res, next) => {
     const result = answer.toLowerCase().trim() === req.quiz.answer.toLowerCase().trim();
     if (result) {
         if (req.session.resolved.indexOf(req.quiz.id) === -1){
-            req.session.resolved.push(quiz.id);
+            req.session.resolved.push(req.quiz.id);
         }
         const score = req.session.resolved.length;
-        res.render('quizzes/random_result', {result, score, answer});
+        models.quiz.count()
+            .then( count => {
+                if (score === count){
+                    res.render('random_nomore', {score});
+                } else {
+                    res.render('quizzes/random_result', {result, score, answer});
+                }
+            });
     } else {
         delete req.session.resolved;
         const score = req.session.resolved.length;
