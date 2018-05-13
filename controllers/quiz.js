@@ -204,10 +204,10 @@ exports.randomCheck = (req, res, next) => {
         if (req.session.resolved.indexOf(req.quiz.id) === -1){
             req.session.resolved.push(req.quiz.id);
         }
-        const score = req.session.resolved.length-1;
+        const score = req.session.resolved.length;
         models.quiz.count()
             .then( count => {
-                if (score+1 > count){
+                if (score > count){
                     delete req.session.resolved;
                     res.render('quizzes/random_result', {result, score, answer});
                 } else {
