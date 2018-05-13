@@ -168,6 +168,10 @@ exports.randomPlay = (req, res, next) => {
 
         return models.quiz.count({where: whereOpt})
             .then(count => {
+                let score = 0;
+                if (count === 0){
+                    res.render('quizzes/random_nomore', {score});
+                }
                 let ran = Math.floor(Math.random()*count);
                 return models.quiz.findAll({
                     where: whereOpt,
