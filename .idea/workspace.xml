@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="abb64e53-3cbf-4373-8383-4042dd6eb788" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change beforePath="$PROJECT_DIR$/controllers/quiz.js" afterPath="$PROJECT_DIR$/controllers/quiz.js" />
       <change beforePath="$PROJECT_DIR$/quizzes.sqlite" afterPath="$PROJECT_DIR$/quizzes.sqlite" />
     </list>
@@ -32,7 +31,7 @@
       <file leaf-file-name="quiz.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/controllers/quiz.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="278">
+            <state relative-caret-position="244">
               <caret line="170" column="55" lean-forward="false" selection-start-line="170" selection-start-column="55" selection-end-line="170" selection-end-column="55" />
               <folding />
             </state>
@@ -214,12 +213,12 @@
       <workItem from="1525423020412" duration="1185000" />
       <workItem from="1525943971167" duration="448000" />
       <workItem from="1525981069956" duration="10000" />
-      <workItem from="1526220772331" duration="7492000" />
+      <workItem from="1526220772331" duration="7999000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="14855000" />
+    <option name="totallyTimeSpent" value="15362000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -615,7 +614,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/controllers/quiz.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="278">
+        <state relative-caret-position="244">
           <caret line="170" column="55" lean-forward="false" selection-start-line="170" selection-start-column="55" selection-end-line="170" selection-end-column="55" />
           <folding />
         </state>
