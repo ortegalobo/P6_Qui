@@ -168,8 +168,9 @@ exports.randomPlay = (req, res, next) => {
 
         return models.quiz.count({where: whereOpt})
             .then(count => {
-                let score = 0;
+                let score = req.session.resolved.length;
                 if (count === 0){
+                    delete req.session.resolved;
                     res.render('quizzes/random_nomore', {score});
                 }
                 let ran = Math.floor(Math.random()*count);
@@ -206,9 +207,9 @@ exports.randomCheck = (req, res, next) => {
         const score = req.session.resolved.length;
         models.quiz.count()
             .then( count => {
-                if (score === count){
+                if (score > count){
                     delete req.session.resolved;
-                    res.render('quizzes/random_nomore', {score});
+                    res.render('quizzes/random_result', {result, score, answer});
                 } else {
                     res.render('quizzes/random_result', {result, score, answer});
                 }
